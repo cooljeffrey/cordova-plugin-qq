@@ -1,0 +1,24 @@
+{
+    "version": "1.0.0",
+    "name": "com.cooljeffrey.qq",
+    "cordova_name": "QQ",
+    "description": "Tencent QQ plugin for cordova",
+    "platforms": [
+        "android"
+    ],
+    "repository": {
+	    "type": "git",
+	    "url": "https://github.com/cooljeffrey/cordova-plugin-qq"
+	},
+  	"keywords": [
+  		"cordova",
+  		"qq",
+  		"sdk"
+  	],
+    "engines": [{
+      "name": "cordova",
+      "version": ">=3.1.0"
+    }],
+  	"author": "JeffreyYu",
+  	"license": "MIT"
+}

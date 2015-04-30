@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.cooljeffrey.qq"
+    version="1.0.0">
+    <name>QQ</name>
+    <description>Tencent QQ plugin for cordova</description>
+    <author>JeffreyYu</author>
+    <license>MIT</license>
+    <keywords>cordova,qq,sdk</keywords>
+    <repo>https://github.com/cooljeffrey/cordova-plugin-qq</repo>
+    <js-module src="www/qq.js" name="qq">
+        <clobbers target="window.qq" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="qq" >
+                <param name="android-package" value="com.cooljeffrye.QQ"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.tencent.tauth.AuthActivity" android:noHistory="true" android:launchMode="singleTask">
+                <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent QQ AppId" />
+                </intent-filter>
+            </activity>
+            <activity android:name="com.tencent.connect.common.AssistActivity"
+                      android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                      android:configChanges="orientation|keyboardHidden|screenSize"
+                    />
+        </config-file>
+        <source-file src="src/android/QQ.java" target-dir="src/com/cooljeffrey" />
+        <source-file src="src/android/libs/open_sdk_r4889_lite.jar" target-dir="libs" framework="true" />
+    </platform>
+</plugin>
